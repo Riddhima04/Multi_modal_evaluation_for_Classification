@@ -1,27 +1,66 @@
-# Directory structure
 
-mini-project-1/
-├── datasets
-│   ├── test
-│   │   ├── test_emoticon.csv
-│   │   ├── test_feature.npz
-│   │   └── test_text_seq.csv
-│   ├── train
-│   │   ├── train_emoticon.csv
-│   │   ├── train_feature.npz
-│   │   └── train_text_seq.csv
-│   └── valid
-│       ├── valid_emoticon.csv
-│       ├── valid_feature.npz
-│       └── valid_text_seq.csv
-├── read_data.py
-├── README
-└── your_group_no.py
+# Emoticon, Feature, and Text Sequence Classification Project
+
+This repository contains code and results for a machine learning and deep learning project focused on classifying emoticon sequences, deep feature data, and text sequences. The project evaluates multiple models on separate datasets and a combined dataset to identify the best-performing classification model.
+
+## Project Overview
+
+This mini project explores the classification of three different datasets using various machine learning and deep learning techniques:
+
+- Emoticon Dataset: Classification of emoticon sequences using machine learning models.
+- Deep Feature Dataset: Classification based on high-dimensional feature vectors.
+- Text Sequence Dataset: Sequence classification using a Bidirectional LSTM deep learning model.
+- Combined Dataset: An integrated dataset combining emoticon, feature, and text sequence data for improved classification performance.
+
+## Datasets
+
+The datasets used are split into training, validation, and test subsets for each type:
+
+- **Emoticon Dataset:** CSV files containing sequences of emoticons and their labels.
+- **Deep Feature Dataset:** Numpy `.npz` files with high-dimensional features and corresponding labels.
+- **Text Sequence Dataset:** CSV files with sequences represented as strings of numeric tokens and their labels.
+
+## Models and Techniques
+
+### Emoticon Dataset
+
+- Logistic Regression
+- Random Forest Classifier
+- Support Vector Machine (SVM)
+- K-Nearest Neighbors (KNN)
+- Decision Tree Classifier
+
+The emoticon sequences are preprocessed with one-hot encoding and models are trained at various percentages of the dataset.
+
+### Deep Feature Dataset
+
+- Logistic Regression
+- Random Forest
+- Support Vector Machine (SVM)
+
+The feature data is standardized using `StandardScaler`. Random Forest was the best-performing model.
+
+### Text Sequence Dataset
+
+- Bidirectional Long Short-Term Memory (BiLSTM) network implemented in TensorFlow/Keras.
+
+Sequences are tokenized, converted to numeric arrays, padded for uniform length, and classified with a BiLSTM.
+
+### Combined Dataset
+
+- Logistic Regression
+- Random Forest
+- XGBoost
+
+The combined dataset concatenates features from all three datasets after preprocessing and scaling.
+
+## Performance Summary
+
+| Dataset           | Best Model             | Best Accuracy | Notes                                |
+|-------------------|-----------------------|---------------|------------------------------------|
+| Emoticon          | Logistic Regression   | 89.37%        | Logistic Regression was most reliable |
+| Deep Feature      | Random Forest         | 98.77%        | Random Forest handled high-dimensional data best |
+| Text Sequence     | BiLSTM                | 85.89%        | Effective at capturing sequential dependencies |
+| Combined Dataset  | Random Forest         | 98.09%        | Combining datasets improved accuracy |
 
 
-1. read_data.py files contains the code to read the datasets.
-2. your_group_no.py file is just a dummy file. You may change it as you want. 
-3. You may crate multiple python files according to your requirements but you must link them to your_group_no.py
-4. For the evaluation we will only run your_group_no.py file. If external library is required to run this file, you must mention it in your readme or requirements.txt.
-5. Running your_group_no.py file must produce 4 files (pred_feat.txt, pred_emoticon.txt, pred_text.txt and pred_combined.txt) with same filename.
-6. You must rename your_group_no.py file with your group number.
